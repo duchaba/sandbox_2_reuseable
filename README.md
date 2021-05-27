@@ -1,2 +1,3 @@
 # sandbox_2_reuseable
-per project need
+
+This is a space where I share a temporary project with friends. If you stumble in by mistake, please leave. 

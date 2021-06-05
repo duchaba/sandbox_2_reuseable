@@ -1,0 +1,742 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>1. Introduction</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7abd9a01-38c4-4113-b39f-cf0fa23ae7d2" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1596276122653-651a3898309f?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 53.69999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🔘</span></div><h1 class="page-title">1. Introduction</h1></header><div class="page-body"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="6d8f54e4-587f-45e6-876a-492c873d56ff"><div style="font-size:1.5em"><span class="icon">🌻</span></div><div style="width:100%"><strong>Start Here!
+</strong>
+Welcome to the GraphQL journey. Are you smiling? 😀 
+
+If you&#x27;re curious about GraphQL, then the &quot;Introduction&quot; is all you need to read. The goal for the &quot;Introduction&quot; is to describe GraphQL for techie and non-techie alike.
+
+If you&#x27;re a nerd or a nerd at heart, then shoulder forward. The content will be more technical in later chapter.
+</div></figure><p id="1771494e-2768-4606-9456-9d0145ffe8ff" class="">
+</p><hr id="1a2cbd4d-cec6-4097-b393-7c0037c2640f"/><p id="e721d9f0-9f15-4e5d-ba02-1c6728035eaa" class=""> </p><h3 id="f45eb08b-db3f-4322-aba8-b500225d5bcf" class="">A. Quick Introduction</h3><p id="d9d73a3e-50ee-41e9-848d-bac97eb9c02f" class="">
+</p><p id="37151e83-4126-4382-b695-043423142f6e" class="">GraphQL is a relatively new technology for mobile phone apps, tablets, and websites to request information from the backend server. </p><figure id="a332212e-3ede-4afe-bb75-35a4f2ec2279" class="image"><a href="1%20Introduction%20a332212e3ede4afebb7535a4f2ec2279/Screen_Shot_2021-06-04_at_12.10.48_PM.png"><img style="width:1894px" src="1%20Introduction%20a332212e3ede4afebb7535a4f2ec2279/Screen_Shot_2021-06-04_at_12.10.48_PM.png"/></a></figure><p id="9503d17e-41da-456f-a8c4-279958d616e2" class="">The big breakthrough is different clients can request different data using the same API endpoint from the server. In the old days, the server responds with the same data for everyone. That&#x27;s it, but don&#x27;t stop reading.</p><hr id="03c1842e-4789-4ef4-9c41-eb56049cf7e0"/><p id="8593724e-f54d-4ab4-bc4f-be4271a4fb9c" class="">
+</p><h3 id="362793ba-0b3d-463d-9d4e-8aa062086544" class="">B. Analogy and Examples</h3><div id="231adfb9-edd9-4812-950b-9ba87bf1ec72" class="column-list"><div id="6898b0cd-5c7a-480b-b7d8-eb8e9db2adc5" style="width:50%" class="column"><p id="84582a21-8ec2-4266-bcd6-00161f298349" class="">As an analogy, in the old days, when buying a pizza, you can choose a frozen Pepperoni, Cheese, All-meat, Veggie, or Southern Carolina BBQ Bonanza pizza. Each frozen pizza comes with a set of ingredients that you can&#x27;t change. For example, you can&#x27;t buy a veggie pizza with no cheese and no broccoli or order a &quot;thin crust, provolone cheese, tomato source with prosciutto and bell peppers&quot; pizza. </p><p id="1f174037-7da3-405c-bf9e-61764f52e188" class="">The breakthrough is you can choose what on your pizza. For example, you can add wild mushroom to your pepperoni pizza or design your perfect late-night pizza. </p></div><div id="6562f1c0-7526-4dab-81d0-9ac01780cbf1" style="width:50.000000000000014%" class="column"><figure id="123147c9-287e-46da-bce7-3e49b20dcc92" class="image"><a href="https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div></div><hr id="085f8c90-75af-47c1-a016-6c186b15d3ca"/><p id="7e995c82-3c70-4edc-bdcb-4713b2e9188e" class="">
+</p><p id="52f2a062-0334-4dfd-9292-5b92db9f336d" class="">A more common API example is requesting users information. </p><p id="2e839138-ca5e-4456-afa2-fa6849545249" class="">
+</p><ul id="26c45b9b-dc00-4baa-a7e9-7b4753d50e3d" class="bulleted-list"><li><strong>In the old days, request using REST API and response in JSON</strong></li></ul><div id="aa612566-94ed-46bd-a7d0-b310a0697bac" class="column-list"><div id="c1fce62a-5d2e-4eea-8ac1-70f3083e9133" style="width:50%" class="column"><pre id="ba436ebf-c9da-4c3f-9b37-76d8003a712d" class="code"><code>[REQUEST]
+
+~/yml/employee/q123456</code></pre></div><div id="fcedd6c6-e1b4-4591-9c97-0df61e2855c5" style="width:50%" class="column"><pre id="fb41bcfe-0ed3-43c8-a5d4-9e1931827171" class="code"><code>[RESPONSE]
+
+{
+	id: &quot;q123456&quot;,
+	name: &quot;Duc Haba&quot;,
+	projects: [
+		{
+			client: &quot;Kaiser Permanente&quot;,
+			location: &quot;CA&quot;
+		},
+			client: &quot;Garden World&quot;,
+			location: &quot;Switzerland&quot;,
+		},
+		{
+			client: &quot;AI Foundation&quot;,
+			location: &quot;Hawaii&quot;
+	],
+	age: 25,
+	role: &quot;TPO/Solution Arch&quot;
+	shoe: 8.5
+	address: &quot;12 home&quot;,
+	city: &quot;Fremont&quot;,
+	zipcode: &quot;94536&quot;,
+	hobbies: [
+		&quot;gardening&quot;,
+		&quot;swimming&quot;,
+		&quot;traveling&quot;,
+	],
+	office: &quot;Redwood Shores&quot;,
+	covid_19: &quot;vaccinated&quot;,
+	building_key: &quot;p9876543&quot;,
+	avail_vacation_day: 31,
+	blood: &quot;B-&quot;,
+	insurance: &quot;Kaiser Permanente&quot;,
+	doctor: &quot;Dr. Donald Duck&quot;
+}</code></pre></div></div><ul id="64904a03-4d1e-46d5-993e-d109e9039418" class="bulleted-list"><li>It is the same request API endpoint and the same response JSON for everyone. Therefore, each app or website must write the logic to parse the standard response JSON separately.</li></ul><p id="1a71b3df-be5e-4de5-b9f6-6d1135ef1c3e" class="">
+</p><ul id="af81e3a0-4b08-4ee8-955c-1b5f6281c5d1" class="bulleted-list"><li><strong>A new way, request using GraphQL and response JSON</strong></li></ul><p id="d799eeb1-97ce-4b82-b46f-5a11430c9546" class="">
+</p><div id="70232ce5-5671-4ae0-a23a-20b9bbd3338b" class="column-list"><div id="afd8493c-9465-41ea-a4c6-010ba6fcfc02" style="width:50%" class="column"><pre id="71a7655e-039e-45a1-93fe-e08f5f8d331b" class="code"><code>[REQUEST]
+
+~/yml/employee
+
+query {
+	Employee(id : &quot;q123456&quot;) {
+		name,
+		city,
+		hobbies
+	}
+}</code></pre></div><div id="849fd610-60ac-469b-a4f4-7680ee18f29d" style="width:50%" class="column"><pre id="9f485e0d-1afa-4e19-909a-ed9669b7cbce" class="code"><code>[RESPONSE]
+
+{
+	&quot;data&quot; : {
+		&quot;Employee&quot; : {
+			&quot;name&quot; : &quot;Duc Haba&quot;,
+			&quot;city&quot; : &quot;Fremont&quot;,
+			&quot;hobbies&quot; : [
+				&quot;gardening&quot;,
+				&quot;swimming&quot;,
+				&quot;traveling&quot;
+			]
+		}
+	}
+}</code></pre></div></div><ul id="ea8b9cca-00f2-4f00-a5bb-283c69607da1" class="bulleted-list"><li>With GraphQL, other apps, websites, or emails can customize their request differently using the <span style="border-bottom:0.05em solid">same</span> endpoint.</li></ul><p id="dfc6a0f7-94e0-4018-8443-1613f5385b58" class="">
+</p><div id="19388a3d-3132-44e6-9146-10d14ab07df1" class="column-list"><div id="830ee20f-eb4f-4294-9eba-174d4d0cbe23" style="width:50%" class="column"><pre id="18e18859-e49a-4959-b6cd-207c4423aed2" class="code"><code>[REQUEST]
+
+~/yml/employee
+
+query {
+	Employee(id : &quot;q123456&quot;) {
+		name,
+		office,
+		role,
+		insurance,
+		doctor,
+		covid_19,
+		projects(first: 1) {
+			client
+		}
+	}
+}</code></pre></div><div id="866fc5cc-e103-400e-9c03-51bd4faeb7d9" style="width:50%" class="column"><pre id="351043d0-4e95-4af3-a411-3f878fcca7f1" class="code"><code>[RESPONSE]
+
+{
+	&quot;data&quot; : {
+		&quot;Employee&quot; : {
+			&quot;name&quot; : &quot;Duc Haba&quot;,
+			&quot;office&quot; : &quot;Redwood Shores&quot;,
+			&quot;role&quot; : &quot;TPO/Solution Arch&quot;,
+			&quot;insurance&quot; : &quot;Kaiser Permanente&quot;,
+			&quot;doctor&quot; : &quot;Dr. Donald Duck&quot;,
+			&quot;covid_19&quot; : &quot;vaccinated&quot;,
+			&quot;projects&quot; : [
+				{ &quot;client&quot; : &quot;Kaiser Permanente&quot; }
+			]
+		}
+	}
+}</code></pre></div></div><ul id="70288d1b-7aed-4811-8d57-8a1ca52ac6e7" class="bulleted-list"><li>The users choose which data fields to request. In other words, the users can add or remove data fields without waiting for the backend to recode. </li></ul><p id="103dad21-53ab-4940-be62-776f9c1853a2" class="">
+</p><hr id="5d38ea2e-58bf-4d2f-b579-e44705e58943"/><p id="517e8a57-fb37-4e17-a7bf-7c9136e3b290" class="">
+</p><h3 id="f9afdcf9-d5d3-4532-a3e4-aa16bc710a4e" class="">C. Benefits and History </h3><p id="ff86c1cf-2f8a-4ce6-8052-84bbd3b73139" class="">
+</p><blockquote id="a54dd278-c409-416f-a209-39623a8cf178" class="">So, why is an option to choose a big breakthrough?</blockquote><p id="e8dc016d-3335-4147-b277-39136f4c3daa" class="">For non-techie, it may sound like &quot;common sense.&quot; Freedom to choose is better than taking what the G-man is giving you. But for the techie, that is not how we used to do things. &quot;I love frozen pizza, don&#x27;t take that away from me.&quot; 😋</p><div id="75fbef25-6b61-4144-bdbe-87e93d3bce95" class="column-list"><div id="1a6603b3-536b-4cad-9c84-3e6875f1985b" style="width:50%" class="column"><p id="d59b3a41-cf9d-46c9-a832-486b4ea3ac88" class=""> The benefits are many. Chief among them is faster, more agile development cycles, cleaner code, fewer bugs, reduced system load, and a path to omnichannel. </p><p id="19d42c0e-0a5d-4e94-8516-27268d2b63f7" class="">The benefits come with a cost. For enterprise companies, moving from REST API to GraphQL is a substantial investment. It takes a lot of time, resources, and funding. In addition, it will have a high-risk factor for failure, but it is a technical debt with accrued compound interest. The sooner you address the issue, the lesser the cost.</p><p id="485ed9a6-7ee5-40fe-9055-3d814afb1a7c" class="">Reusing the same pizza analogy, retrofitting a frozen pizza factory to a customer responsive pizza emporium wonderland is not easy.</p><p id="d80f27c8-ff3f-421d-91fc-21844c77659d" class="">Facebook developed GraphQL in 2012 originally to work with ReactJS. It public released is in 2015 and move to open-source GraphQL Foundation in 2018, and the Linux Foundation hosted it.</p></div><div id="0f2a1d14-778d-44d1-a352-b99a76749fe7" style="width:50%" class="column"><figure id="0f702117-a107-46f9-a9b2-6f2e9f28c513" class="image"><a href="1%20Introduction%20a332212e3ede4afebb7535a4f2ec2279/Screen_Shot_2021-06-04_at_10.35.36_AM.png"><img style="width:287px" src="1%20Introduction%20a332212e3ede4afebb7535a4f2ec2279/Screen_Shot_2021-06-04_at_10.35.36_AM.png"/></a></figure></div></div><hr id="d37e9e78-0348-4e70-866a-4302930fca5e"/><p id="d84652a1-2487-4d00-b4a2-1cd115624645" class="">
+</p><h3 id="6b7620b9-8588-4b40-8cb7-68d2147ab169" class="">D. Next Step</h3><p id="870935b5-150f-4202-be1c-4805e65e95e7" class="">
+</p><p id="07fe7d2c-8d52-4900-9019-ed1151567f2f" class="">That is all you need to know for GraphQL. If you a nerd or a nerd at heart, go to the next chapter. It will be more technical and with more &quot;dad&quot; jokes. </p><p id="872106c2-6e05-4159-93b9-a723fd434dd0" class="">The next chapter is &quot;<a href="http://google.com">2. GraphQL .vs. REST API ( ✅ )</a>.&quot; If you&#x27;re a PM, you might want to skip to chapter &quot;8. KP Implementation ( ❤️‍🩹 )&quot; to see how an enterprise company is doing it and the lesson learned. </p><p id="1ac915a5-088b-4fb3-a14a-5af6d338c341" class="">
+</p></div></article></body></html>

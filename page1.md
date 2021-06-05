@@ -8,6 +8,7 @@ If you're curious about GraphQL, then the "Introduction" is all you need to read
 
 If you're a nerd or a nerd at heart, then shoulder forward. The content will be more technical in later chapter.
 
+[page2](https://htmlpreview.github.io/?https://github.com/duchaba/sandbox_2_reuseable/edit/master/page2.html)
 ---
 
  
